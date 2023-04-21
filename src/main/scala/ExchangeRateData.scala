@@ -13,7 +13,6 @@ import scala.util.{Failure, Success, Try}
 trait ExchangeRateData extends StrictLogging {
   val path: Option[String]
   lazy val exchangeRatesData: Map[LocalDate, List[ReferenceRate]] = loadData()
-
   /** Loads the data from a csv file
     *
     * Note: If path is NOT provided (None), it will download the zip file from this link first:

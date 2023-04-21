@@ -30,7 +30,7 @@ object Main {
           |Converted 100 USD to PHP at 2023-04-06: ${forexServiceViaFile.convertCurrency("2023-04-06", "USD", "PHP", 100)}
           |""".stripMargin)
 
-    // TODO: Before uncommenting this part, make sure to set the Run Configuration CLI Arguments first:
+    // Before uncommenting this part, make sure to set the Run Configuration CLI Arguments first:
     // To test in scala compiler,
     // Set Run Configuration CLI Arguments to: ./src/test/resources/eurofxref-hist.zip
     // to access the .zip file for exchange rates

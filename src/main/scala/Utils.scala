@@ -12,6 +12,8 @@ object Utils extends StrictLogging {
   final case class ReferenceRate(currency: String, rate: Option[Double])
 
   final case class InvalidDateString(message: String, throwable: Throwable) extends Exception
+  final case class InvalidSourceURLException(message: String) extends Exception
+  final case class FileDownloadException(message: String) extends Exception
 
   implicit class StringExtension(val string: String) extends AnyVal {
     def toLocalDate: LocalDate = {
