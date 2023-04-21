@@ -1,12 +1,11 @@
 package org.formedix.exchange_rate_api
 
-import Utils.{LocalDateExtension, ReferenceRate, StringExtension}
-import org.joda.time.LocalDate
+import Utils.{LocalDateExtension, StringExtension}
 
 import scala.util.{Failure, Success, Try}
 
-class ExchangeRateService(val inputPath: String) extends ExchangeRateData {
-  override val path: String = inputPath
+class ExchangeRateService(val inputPath: Option[String]) extends ExchangeRateData {
+  override val path: Option[String] = inputPath
 
   /** Retrieves the reference rate data for a given date for all
     * available currencies.
@@ -89,11 +88,6 @@ class ExchangeRateService(val inputPath: String) extends ExchangeRateData {
 
   /** Gets the average reference exchange rate that the currency achieved from the given period.
     *
-    * Implementation:
-    * This gets the list of rates of type `List[Option[Double]]` from the exchangeRatesDataInRange
-    * and then calculates for the sum. After that, it will divide the sum to the total number of elements in
-    * the exchangeRatesDataInRange to get the average.
-    *
     * @param currency  input currency
     * @param startDate start date of a period
     * @param endDate   end date of a period
@@ -113,6 +107,8 @@ class ExchangeRateService(val inputPath: String) extends ExchangeRateData {
     }
   }
 
+  /** Gets the list of exchange rates of a currency in a given range
+    */
   private[exchange_rate_api] def getExchangeRatesInRange(
       currency: String,
       startDate: String,

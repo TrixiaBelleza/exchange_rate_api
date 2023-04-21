@@ -1,2 +1,2 @@
-[debug] Created transactional ClassFileManager with tempDir = /Users/trixiabelleza/Documents/ForeignExchangeRate/exchange_rate_api/project/target/scala-2.12/sbt-1.0/classes.bak
-[debug] Removing the temporary directory used for backing up class files: /Users/trixiabelleza/Documents/ForeignExchangeRate/exchange_rate_api/project/target/scala-2.12/sbt-1.0/classes.bak
+[debug] Created transactional ClassFileManager with tempDir = /Users/trixiabelleza/Documents/ForeignExchangeRate/forex-worktree/main/download-zip-from-url/project/target/scala-2.12/sbt-1.0/classes.bak
+[debug] Removing the temporary directory used for backing up class files: /Users/trixiabelleza/Documents/ForeignExchangeRate/forex-worktree/main/download-zip-from-url/project/target/scala-2.12/sbt-1.0/classes.bak
