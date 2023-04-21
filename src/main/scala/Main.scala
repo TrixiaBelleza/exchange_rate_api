@@ -1,11 +1,13 @@
 package org.formedix.exchange_rate_api
 
 /**
-  * For manual testing of the API.
+  * This is to show sample usages of the ExchangeRateService API.
   */
 object Main {
   def main(args: Array[String]): Unit = {
     println("Foreign Exchange Rates")
+
+    // ********** Sample usages of the ExchangeRateService **********
 
     val ecbExchangeRatesLink = "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
     val forexServiceViaLink = new ExchangeRateService(None)

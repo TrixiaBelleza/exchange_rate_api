@@ -86,7 +86,7 @@ class ExchangeRateService(val inputPath: Option[String]) extends ExchangeRateDat
     getExchangeRatesInRange(currency, startDate, endDate).maxOption
   }
 
-  /** Gets the average reference exchange rate that the currency achieved from the given period.
+  /** Gets the average reference exchange rate for the currency at the given period.
     *
     * @param currency  input currency
     * @param startDate start date of a period
