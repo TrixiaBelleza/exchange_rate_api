@@ -1,0 +1,21 @@
+# SBT build artifacts
+target/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse files
+.project
+.classpath
+.settings/
+
+# Log files
+logs/
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db

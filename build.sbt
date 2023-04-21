@@ -15,3 +15,5 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.2.9" % Test,
   "org.scalatestplus" %% "mockito-3-4" % "3.2.9.0" % Test
 )
+libraryDependencies += "org.jsoup" % "jsoup" % "1.14.3"
+
