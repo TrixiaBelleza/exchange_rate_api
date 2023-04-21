@@ -1,5 +1,7 @@
 package org.formedix.exchange_rate_api
 
+import Utils.FileDownloadException
+
 import java.io.FileOutputStream
 import java.net.{HttpURLConnection, URL}
 import scala.util.{Failure, Success, Try}
@@ -32,19 +34,23 @@ class ECBExchangeRateDownloader extends ExchangeRateDownloader {
 
           downloadFile(inputStream, outputStream, outputFileName)
         } else {
-          logger.warn(
+          val errorMessage =
             s"Failed to download file from $sourceURL. Response code: ${connection.getResponseCode}"
-          )
+          logger.warn(errorMessage)
+          throw FileDownloadException(errorMessage)
         }
       }
     } match {
       case Success(_) =>
         logger.info(s"Successfully downloaded the zip file from $sourceURL!")
       case Failure(exception) =>
-        logger.info(
-          s"Failed to download from $sourceURL due to ${exception.getMessage}",
+        val errorMessage =
+          s"Failed to download from $sourceURL due to ${exception.getMessage}"
+        logger.warn(
+          errorMessage,
           exception
         )
+        throw FileDownloadException(errorMessage)
     }
     ()
   }

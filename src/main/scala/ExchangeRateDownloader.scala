@@ -1,6 +1,7 @@
 package org.formedix.exchange_rate_api
 
 import com.typesafe.scalalogging.StrictLogging
+import Utils.InvalidSourceURLException
 import org.jsoup.Jsoup
 
 import java.io.{InputStream, OutputStream}
@@ -15,14 +16,12 @@ trait ExchangeRateDownloader extends StrictLogging {
 
   def download(): Unit
 
-  /**
-    * Gets the protocol://hostname of the source url
+  /** Gets the protocol://hostname of the source url
     */
   def getHostNameWithProtocol: String =
     s"${sourceURL.getProtocol}://${sourceURL.getHost}"
 
-  /**
-    * Gets the downloadable path from the queried HTML attribute value
+  /** Gets the downloadable path from the queried HTML attribute value
     * @param attribute an HTML attribute (e.g. href) that contains the downloadable path.
     * @return the downloadable path in datatype String
     */
@@ -39,14 +38,11 @@ trait ExchangeRateDownloader extends StrictLogging {
           errorMessage,
           exception
         )
-        throw InvalidSourceURLException(
-          errorMessage
-        )
+        throw InvalidSourceURLException(errorMessage)
     }
   }
 
-  /**
-    * Gets an HttpURLConnection to the downloadable URL
+  /** Gets an HttpURLConnection to the downloadable URL
     * @param downloadableURL URL where the zip can be downloaded
     * @return
     */
@@ -69,8 +65,7 @@ trait ExchangeRateDownloader extends StrictLogging {
     }
   }
 
-  /**
-    * Downloads the zip file from the downloadable link
+  /** Downloads the zip file from the downloadable link
     * @param inputStream input stream from the downloadable url connection
     * @param outputStream output stream for the output filename
     * @param outputFileName output filename or path where the downloaded zip file will be located
@@ -99,6 +94,4 @@ trait ExchangeRateDownloader extends StrictLogging {
       inputStream.close()
     }
   }
-
-  final case class InvalidSourceURLException(message: String) extends Exception
 }
